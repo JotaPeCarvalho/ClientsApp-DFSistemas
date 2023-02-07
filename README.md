@@ -1,6 +1,6 @@
 # ClientsApp-DFSistemas
 
-### Tecnologia utilizadas:
+### Tecnologias utilizadas:
 
 * HTML
 * CSS
