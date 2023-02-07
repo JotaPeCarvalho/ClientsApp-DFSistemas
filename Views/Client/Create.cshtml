@@ -1,0 +1,112 @@
+﻿@model ClientModel
+@{
+    ViewData["Title"] = "Criar Cliente";
+}
+
+<div class=" text-center">
+
+    <h1 class="display-4">Cadastrar Cliente</h1>
+
+</div>
+<br />
+<form asp-controller="Client" asp-action="Create" method="post">
+    <fieldset>
+        <legend class="text-center">Dados do cliente</legend>
+        <div class="form-row">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="nome">Nome</label>
+                    <input asp-for="Name" type="text" class="form-control" id="nome" placeholder="Digite o nome do Cliente">
+                    @Html.ValidationMessageFor(x => x.Name)
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="dataNascimento">Data de nascimento</label>
+                    <input asp-for="Date" type="date" class="form-control" id="dataNascimento">
+                    @Html.ValidationMessageFor(x => x.Date)
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="rg">RG</label>
+                    <input asp-for="Rg" type="text" class="form-control" maxlength="8" id="rg" placeholder="Digite o RG do Cliente">
+                    @Html.ValidationMessageFor(x => x.Rg)
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="cpf">CPF</label>
+                    <input asp-for="Cpf" type="text" class="form-control" maxlength="11" placeholder="Digite o CPF do Cliente" id="cpf">
+                    @Html.ValidationMessageFor(x => x.Cpf)
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    <fieldset>
+        <legend class="text-center">Telefones</legend>
+        <div class="form-row">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="numero1">Telefone comercial</label>
+                    <input asp-for="Phone.ComercialPhone" type="tel" class="form-control" id="numero1" placeholder="Digite o telefone comercial do cliente">
+                    @Html.ValidationMessageFor(x => x.Phone.ComercialPhone)
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="numero2">Telefone residencial</label>
+                    <input asp-for="Phone.ResidencialPhone" type="tel" class="form-control" id="numero2" placeholder="Digite o telefone residencial do cliente">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="numero1">Telefone (outro)</label>
+                    <input asp-for="Phone.OtherPhone" type="tel" class="form-control" id="numero1" placeholder="Digite outro telefone do cliente">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    <fieldset>
+        <legend class="text-center">Endereços</legend>
+        <div class="form-group">
+            <label for="inputAddress">Endereço</label>
+            <input asp-for="Adress.PrincipalAdress" type="text" class="form-control" id="inputAddress" placeholder="Digite o endereço do cliente">
+            @Html.ValidationMessageFor(x => x.Adress.PrincipalAdress)
+            <br />
+
+            <label for="inputAddress2">Outro endereço (opcional)</label>
+            <input asp-for="Adress.PrincipalAdress" type="text" class="form-control" id="inputAddress2" placeholder="Digite o endereço do cliente">
+        </div>
+    </fieldset>
+    <br />
+    <fieldset>
+        <legend class="text-center">Redes Sociais</legend>
+        <div class="form-row">
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="numero1">Facebook</label>
+                    <input asp-for="SocialMidia.FacebookUrl" type="text" class="form-control" id="numero1" placeholder="Digite a Url do Facebook do cliente">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="numero2">Linkedin</label>
+                    <input asp-for="SocialMidia.LinkedinUrl" type=" text" class="form-control" id="numero2" placeholder="Digite a Url do Linkedin do cliente">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="numero1">Twitter</label>
+                    <input asp-for="SocialMidia.TwitterUrl" type=" text" class="form-control" id="numero1" placeholder="Digite o Twitter d cliente">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="numero1">Instagram</label>
+                    <input asp-for="SocialMidia.InstagramUrl" type=" text" class="form-control" id="numero1" placeholder="Digite o Instagram do cliente">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <br />
+
+    <div class="row">
+        <button type="submit" class="btn btn-primary btn-block mb-3 mt-5">Adicionar</button>
+        <br />
+        <a class="btn btn-secondary mb-5" asp-controller="Client" asp-action="Index" role="button">Voltar</a>
+    </div>
+
+
+</form>
